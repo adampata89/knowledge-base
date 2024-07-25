@@ -40,6 +40,8 @@ nav:
   - Redis:
       - redis/index.md
       - redis/configuration.md
+      - redis/working_test.md
+      - redis/commands.md
   - Elasticsearch:
       - elasticsearch/index.md
       - elasticsearch/configuration.md
