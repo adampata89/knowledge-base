@@ -1,0 +1,93 @@
+site_name: Baza wiedzy
+site_url: https://bazawiedzy.local/
+
+docs_dir: docs/
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  language: pl
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+      primary: teal
+      accent: purple
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+      primary: teal
+      accent: lime
+
+nav:
+  - Home Page: index.md
+  - Varnish:
+      - varnish/index.md
+      - varnish/configuration.md
+      - varnish/working_test.md
+      - varnish/commands.md
+  - Redis:
+      - redis/index.md
+      - redis/configuration.md
+  - Elasticsearch:
+      - elasticsearch/index.md
+      - elasticsearch/configuration.md
+
+plugins:
+  - search
+  - markdownextradata
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: pl
+          default: true
+          name: Polski
+          build: true
+          site_name: "Baza wiedzy"
+          theme:
+            palette:
+              primary: red
+          nav_translations:
+            Home Page: Strona Główna
+            Varnish: Varnish
+            Redis: Redis
+            Elasticsearch: Elasticsearch
+extra:
+  domain:
+    base_url: https://ohbe.crystal-albums.pl
+  configurator_source_path: https://ohbe.crystal-albums.pl/sales-channel-api/v1/configurators
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - attr_list
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+copyright: Adam Patalong
+
+
