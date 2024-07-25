@@ -45,6 +45,8 @@ nav:
   - Elasticsearch:
       - elasticsearch/index.md
       - elasticsearch/configuration.md
+      - elasticsearch/working_test.md
+      - elasticsearch/commands.md
 
 plugins:
   - search

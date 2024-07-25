@@ -5,7 +5,7 @@ W swoim pliku `docker_compose.yml` dodaj Redis jako usługę.
 
 ??? "Przykład konfiguracji pliku `docker_compose.yml`"
     === "YML"
-        ```yml linenums="1" hl_lines="3-10 13"
+        ```yml linenums="1" hl_lines="3-10 13 14"
         --8<-- "docs/redis/code/docker_compose.yml"
         ```
 
