@@ -1,0 +1,3 @@
+<argument xsi:type="array">
+    <item name="someKey" xsi:type="<type>">someVal</item>
+</argument>
