@@ -47,6 +47,11 @@ nav:
       - elasticsearch/configuration.md
       - elasticsearch/working_test.md
       - elasticsearch/commands.md
+  - Dependency Injection:
+      - di/index.md
+      - di/type_configuration.md
+      - di/constructor.md
+      - di/shared.md
 
 plugins:
   - search
@@ -65,11 +70,7 @@ plugins:
           theme:
             palette:
               primary: red
-          nav_translations:
-            Home Page: Strona Główna
-            Varnish: Varnish
-            Redis: Redis
-            Elasticsearch: Elasticsearch
+              accent: blue
 extra:
   domain:
     base_url: https://ohbe.crystal-albums.pl
