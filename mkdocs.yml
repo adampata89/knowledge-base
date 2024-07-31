@@ -10,6 +10,7 @@ theme:
     - navigation.sections
     - toc.integrate
     - navigation.top
+    - navigation.footer
     - search.suggest
     - search.highlight
     - content.tabs.link
@@ -19,13 +20,13 @@ theme:
   palette:
     - scheme: default
       toggle:
-        icon: material/toggle-switch-off-outline
+        icon: material/brightness-7
         name: Switch to dark mode
       primary: teal
       accent: purple
     - scheme: slate
       toggle:
-        icon: material/toggle-switch
+        icon: material/brightness-4
         name: Switch to light mode
       primary: teal
       accent: lime
@@ -52,6 +53,7 @@ nav:
       - di/type_configuration.md
       - di/constructor.md
       - di/shared.md
+      - di/di_info.md
 
 plugins:
   - search
@@ -93,6 +95,6 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true
 
-copyright: Adam Patalong
+copyright: Created by Adam Patalong
 
 
