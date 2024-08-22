@@ -12,4 +12,4 @@ Możesz skonfigurować typ w węźle konfiguracji di.xml w następujący sposób
 Typ wirtualny umożliwia zmianę konkretnych argumentów zależności, które można wstrzykiwać, a także zachowania określonej klasy.
 W rezultacie można używać dostosowanej klasy bez wpływu na inne klasy, które są zależne od oryginału.
 
-Przykład tworzy typ wirtualny dla Magento\Core\Model\Config i identyfikuje system jako argument konstruktora dla typu.
+Przykład tworzy typ wirtualny dla `Magento\Core\Model\Config` i identyfikuje system jako argument konstruktora dla typu.

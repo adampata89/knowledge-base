@@ -91,9 +91,19 @@ Akceptowalne wartości dla tego typu to liczby całkowite, zmiennoprzecinkowe lu
 ---
 
 ### Przykłady
+
+Przykłady wstrzykiwania argumentów konstruktora:
+
 ```xml
     --8<-- "docs/di/code/constructor/example.xml"
 ```
+
+Przykład wykorzystania przy tworzeniu własnych operacji bulkowych
+    
+```xml
+    --8<-- "docs/di/code/constructor/queue.xml"
+```
+
 
 ### Implementacja interfejsów
 
@@ -115,6 +125,9 @@ Oto przykład zastąpienia metody z pliku podstawowego:
 ```xml
     --8<-- "docs/di/code/constructor/override.xml"
 ```
+
+???+ warning "Uwaga"
+    Magento zaleca używanie pluginów oraz event obserwerów zamiast nadpisywania klas.
 
 ### Dziedziczenie konfiguracji parametrów
 

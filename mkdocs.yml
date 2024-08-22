@@ -53,6 +53,7 @@ nav:
       - di/type_configuration.md
       - di/constructor.md
       - di/shared.md
+      - di/plugins.md
       - di/di_info.md
 
 plugins:
