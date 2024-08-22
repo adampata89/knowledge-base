@@ -1,0 +1,16 @@
+version: '3.5'
+services:
+  elasticsearch:
+    build: .
+    container_name: ${PROJECT_PREFIX}_elasticsearch
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    ports:
+      - 9200:9200
+    volumes:
+      - demo_esdata:/usr/share/elasticsearch/data:rw
+
+volumes:
+  demo_esdata:
+    driver: local

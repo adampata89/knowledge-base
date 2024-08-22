@@ -1,0 +1,1377 @@
+
+<!doctype html>
+<html lang="pl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://bazawiedzy.local/redis/configuration/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../working_test/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
+    
+    
+      
+        <title>Konfiguracja - Baza wiedzy</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#konfiguracja" class="md-skip">
+          Przejdź do treści
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Nagłówek">
+    <a href="../.." title="Baza wiedzy" class="md-header__button md-logo" aria-label="Baza wiedzy" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Baza wiedzy
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Konfiguracja
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Szukaj" placeholder="Szukaj" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Szukaj">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Wyczyść" aria-label="Wyczyść" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicjowanie wyszukiwania
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Zakładki" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home Page
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../varnish/" class="md-tabs__link">
+          
+  
+  Varnish
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  Redis
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../elasticsearch/" class="md-tabs__link">
+          
+  
+  Elasticsearch
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../di/" class="md-tabs__link">
+          
+  
+  Dependency Injection
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Nawigacja" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Baza wiedzy" class="md-nav__button md-logo" aria-label="Baza wiedzy" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Baza wiedzy
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home Page
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Varnish
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Varnish
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../varnish/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Czym jest Varnish?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../varnish/configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Konfiguracja
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../varnish/working_test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sprawdzenie działania
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../varnish/commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Przydatne polecenia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Redis
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Redis
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Czym jest Redis?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Konfiguracja
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Konfiguracja
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Spis treści">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker_composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      docker_compose.yml
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appetcenvphp" class="md-nav__link">
+    <span class="md-ellipsis">
+      app/etc/env.php
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../working_test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sprawdzenie działania
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Przydatne polecenia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Elasticsearch
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Elasticsearch
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../elasticsearch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Czym jest Elasticsearch?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../elasticsearch/configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Konfiguracja
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../elasticsearch/working_test/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sprawdzenie działania
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../elasticsearch/commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Przydatne polecenia
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Dependency Injection
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Dependency Injection
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../di/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Czym jest Dependency Injection w Magento 2?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../di/type_configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Konfigurowanie typów
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../di/constructor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Konfigurowanie argumentów konstruktora
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../di/shared/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Konfiguracja życia obiektu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../di/plugins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pluginy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../di/di_info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Informacje o konfiguracji DI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="konfiguracja">Konfiguracja</h1>
+<h2 id="docker_composeyml">docker_compose.yml</h2>
+<p>W swoim pliku <code>docker_compose.yml</code> dodaj Redis jako usługę.</p>
+<details>
+<summary>Przykład konfiguracji pliku <code>docker_compose.yml</code></summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">YML</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>version: &#39;3.5&#39;
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>services:
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="hll">  redis:
+</span><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="hll">    image: redis:latest
+</span><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="hll">    container_name: ${PROJECT_PREFIX}_redis
+</span><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="hll">    restart: always
+</span><a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="hll">    ports:
+</span><a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="hll">      - &#39;6379:6379&#39;
+</span><a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="hll">    volumes:
+</span><a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="hll">      - redis_data:/data
+</span><a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>volumes:
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="hll">    redis_data:
+</span><a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="hll">      driver: local
+</span></code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+<h2 id="appetcenvphp">app/etc/env.php</h2>
+<p>Skonfiguruj Magento aby używało Redis poprzez edycję pliku <code>app/etc/env.php</code>.</p>
+<details>
+<summary>Przykład konfiguracji pliku <code>app/etc/env.php</code></summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">PHP</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-1-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-1-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-1-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-1-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-1-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-1-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-1-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-1-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-1-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-1-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-1-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-1-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-1-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-1-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-1-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-1-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-1-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-1-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-1-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-1-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-1-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-1-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-1-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-1-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-1-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-1-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-1-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-1-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-1-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-1-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-1-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-1-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-1-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-1-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-1-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-1-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-1-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-1-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-1-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-1-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-1-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-1-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-1-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-1-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-1-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-1-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-1-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-1-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-1-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-1-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-1-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-1-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-1-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-1-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-1-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-1-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-1-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-1-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-1-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-1-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-1-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-1-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-1-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-1-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-1-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-1-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-1-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-1-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-1-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-1-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-1-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-1-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-1-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-1-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-1-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-1-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-1-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-1-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-1-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-1-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-1-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-1-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-1-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-1-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-1-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-1-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-1-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-1-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-1-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-1-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-1-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-1-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-1-100">100</a></span>
+<span class="normal"><a href="#__codelineno-1-101">101</a></span>
+<span class="normal"><a href="#__codelineno-1-102">102</a></span>
+<span class="normal"><a href="#__codelineno-1-103">103</a></span>
+<span class="normal"><a href="#__codelineno-1-104">104</a></span>
+<span class="normal"><a href="#__codelineno-1-105">105</a></span>
+<span class="normal"><a href="#__codelineno-1-106">106</a></span>
+<span class="normal"><a href="#__codelineno-1-107">107</a></span>
+<span class="normal"><a href="#__codelineno-1-108">108</a></span>
+<span class="normal"><a href="#__codelineno-1-109">109</a></span>
+<span class="normal"><a href="#__codelineno-1-110">110</a></span>
+<span class="normal"><a href="#__codelineno-1-111">111</a></span>
+<span class="normal"><a href="#__codelineno-1-112">112</a></span>
+<span class="normal"><a href="#__codelineno-1-113">113</a></span>
+<span class="normal"><a href="#__codelineno-1-114">114</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">&lt;?php</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">return</span> <span class="p">[</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>    <span class="s1">&#39;backend&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>        <span class="s1">&#39;frontName&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;epanel746&#39;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span class="p">],</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>    <span class="s1">&#39;cache&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>        <span class="s1">&#39;graphql&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>            <span class="s1">&#39;id_salt&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;37qPIkTyjhhb3l1uMG0sm9Ssy146KkeH&#39;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>        <span class="p">],</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>        <span class="s1">&#39;frontend&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>            <span class="s1">&#39;default&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="hll">                <span class="s1">&#39;backend&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Cm_Cache_Backend_Redis&#39;</span><span class="p">,</span>
+</span><a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="hll">                <span class="s1">&#39;backend_options&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="hll">                    <span class="s1">&#39;server&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;redis&#39;</span><span class="p">,</span>
+</span><a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="hll">                    <span class="s1">&#39;port&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;6379&#39;</span><span class="p">,</span>
+</span><a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="hll">                    <span class="s1">&#39;persistent&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Specify a unique string like &quot;cache-db0&quot; to enable persistent connections.</span>
+</span><a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="hll">                    <span class="s1">&#39;database&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+</span><a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="hll">                    <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span>
+</span><a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="hll">                <span class="p">],</span>
+</span><a id="__codelineno-1-20" name="__codelineno-1-20"></a>                <span class="s1">&#39;id_prefix&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;7bf_&#39;</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>            <span class="p">],</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a>            <span class="s1">&#39;page_cache&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>                <span class="s1">&#39;id_prefix&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;7bf_&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="hll">                <span class="s1">&#39;backend&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Cm_Cache_Backend_Redis&#39;</span><span class="p">,</span>
+</span><a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="hll">                <span class="s1">&#39;backend_options&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="hll">                    <span class="s1">&#39;server&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;redis&#39;</span><span class="p">,</span>
+</span><a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="hll">                    <span class="s1">&#39;port&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;6379&#39;</span><span class="p">,</span>
+</span><a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="hll">                    <span class="s1">&#39;persistent&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="c1">// Specify a unique string like &quot;cache-db0&quot; to enable persistent connections.</span>
+</span><a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="hll">                    <span class="s1">&#39;database&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="c1">// Separate database 1 to keep FPC separately</span>
+</span><a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="hll">                    <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="hll"><span class="c1">//                    &#39;force_standalone&#39; =&gt; &#39;0&#39;, // 0 for phpredis, 1 for standalone PHP</span>
+</span><a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="hll"><span class="c1">//                    &#39;connect_retries&#39; =&gt; &#39;1&#39;, // Reduces errors due to random connection failures</span>
+</span><a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="hll">                    <span class="s1">&#39;lifetimelimit&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;57600&#39;</span><span class="p">,</span> <span class="c1">// 16 hours of lifetime for cache record</span>
+</span><a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="hll">                    <span class="s1">&#39;compress_data&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;0&#39;</span> <span class="c1">// DISABLE compression for EE FPC since it already uses compression</span>
+</span><a id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="hll">                <span class="p">]</span>
+</span><a id="__codelineno-1-36" name="__codelineno-1-36"></a>            <span class="p">]</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37"></a>        <span class="p">],</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38"></a>        <span class="s1">&#39;allow_parallel_generation&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39"></a>    <span class="p">],</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40"></a>    <span class="s1">&#39;remote_storage&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41"></a>        <span class="s1">&#39;driver&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;file&#39;</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42"></a>    <span class="p">],</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43"></a>    <span class="s1">&#39;queue&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44"></a>        <span class="s1">&#39;consumers_wait_for_messages&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45"></a>    <span class="p">],</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46"></a>    <span class="s1">&#39;crypt&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47"></a>        <span class="s1">&#39;key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;e8da5314a3a0b8db22da3d729fb3f42a&#39;</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48"></a>    <span class="p">],</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49"></a>    <span class="s1">&#39;db&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50"></a>        <span class="s1">&#39;table_prefix&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51"></a>        <span class="s1">&#39;connection&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-52" name="__codelineno-1-52"></a>            <span class="s1">&#39;default&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-53" name="__codelineno-1-53"></a>                <span class="s1">&#39;host&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;db&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-54" name="__codelineno-1-54"></a>                <span class="s1">&#39;dbname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;magento246&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-55" name="__codelineno-1-55"></a>                <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-56" name="__codelineno-1-56"></a>                <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-57" name="__codelineno-1-57"></a>                <span class="s1">&#39;model&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;mysql4&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-58" name="__codelineno-1-58"></a>                <span class="s1">&#39;engine&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;innodb&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-59" name="__codelineno-1-59"></a>                <span class="s1">&#39;initStatements&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;SET NAMES utf8;&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-60" name="__codelineno-1-60"></a>                <span class="s1">&#39;active&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-61" name="__codelineno-1-61"></a>                <span class="s1">&#39;driver_options&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-62" name="__codelineno-1-62"></a>                    <span class="mi">1014</span> <span class="o">=&gt;</span> <span class="k">false</span>
+<a id="__codelineno-1-63" name="__codelineno-1-63"></a>                <span class="p">]</span>
+<a id="__codelineno-1-64" name="__codelineno-1-64"></a>            <span class="p">]</span>
+<a id="__codelineno-1-65" name="__codelineno-1-65"></a>        <span class="p">]</span>
+<a id="__codelineno-1-66" name="__codelineno-1-66"></a>    <span class="p">],</span>
+<a id="__codelineno-1-67" name="__codelineno-1-67"></a>    <span class="s1">&#39;resource&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-68" name="__codelineno-1-68"></a>        <span class="s1">&#39;default_setup&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-69" name="__codelineno-1-69"></a>            <span class="s1">&#39;connection&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;default&#39;</span>
+<a id="__codelineno-1-70" name="__codelineno-1-70"></a>        <span class="p">]</span>
+<a id="__codelineno-1-71" name="__codelineno-1-71"></a>    <span class="p">],</span>
+<a id="__codelineno-1-72" name="__codelineno-1-72"></a>    <span class="s1">&#39;x-frame-options&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;SAMEORIGIN&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-73" name="__codelineno-1-73"></a>    <span class="s1">&#39;MAGE_MODE&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;developer&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-74" name="__codelineno-1-74"></a>    <span class="s1">&#39;session&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-75" name="__codelineno-1-75"></a><span class="hll">        <span class="s1">&#39;save&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;redis&#39;</span><span class="p">,</span>
+</span><a id="__codelineno-1-76" name="__codelineno-1-76"></a><span class="hll">        <span class="s1">&#39;redis&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+</span><a id="__codelineno-1-77" name="__codelineno-1-77"></a><span class="hll">            <span class="s1">&#39;host&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;redis&#39;</span><span class="p">,</span>
+</span><a id="__codelineno-1-78" name="__codelineno-1-78"></a><span class="hll">            <span class="s1">&#39;port&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;6379&#39;</span><span class="p">,</span>
+</span><a id="__codelineno-1-79" name="__codelineno-1-79"></a><span class="hll">            <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><a id="__codelineno-1-80" name="__codelineno-1-80"></a><span class="hll">            <span class="s1">&#39;timeout&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;2.5&#39;</span><span class="p">,</span>
+</span><a id="__codelineno-1-81" name="__codelineno-1-81"></a><span class="hll">            <span class="s1">&#39;persistent_identifier&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+</span><a id="__codelineno-1-82" name="__codelineno-1-82"></a><span class="hll">            <span class="s1">&#39;database&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;0&#39;</span>
+</span><a id="__codelineno-1-83" name="__codelineno-1-83"></a><span class="hll">        <span class="p">]</span>
+</span><a id="__codelineno-1-84" name="__codelineno-1-84"></a>    <span class="p">],</span>
+<a id="__codelineno-1-85" name="__codelineno-1-85"></a>    <span class="s1">&#39;lock&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-86" name="__codelineno-1-86"></a>        <span class="s1">&#39;provider&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;db&#39;</span>
+<a id="__codelineno-1-87" name="__codelineno-1-87"></a>    <span class="p">],</span>
+<a id="__codelineno-1-88" name="__codelineno-1-88"></a>    <span class="s1">&#39;directories&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-89" name="__codelineno-1-89"></a>        <span class="s1">&#39;document_root_is_pub&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span>
+<a id="__codelineno-1-90" name="__codelineno-1-90"></a>    <span class="p">],</span>
+<a id="__codelineno-1-91" name="__codelineno-1-91"></a>    <span class="s1">&#39;cache_types&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-92" name="__codelineno-1-92"></a>        <span class="s1">&#39;config&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-1-93" name="__codelineno-1-93"></a>        <span class="s1">&#39;layout&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-1-94" name="__codelineno-1-94"></a>        <span class="s1">&#39;block_html&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-1-95" name="__codelineno-1-95"></a>        <span class="s1">&#39;collections&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-1-96" name="__codelineno-1-96"></a>        <span class="s1">&#39;reflection&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-1-97" name="__codelineno-1-97"></a>        <span class="s1">&#39;db_ddl&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-1-98" name="__codelineno-1-98"></a>        <span class="s1">&#39;compiled_config&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-1-99" name="__codelineno-1-99"></a>        <span class="s1">&#39;eav&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-1-100" name="__codelineno-1-100"></a>        <span class="s1">&#39;customer_notification&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-1-101" name="__codelineno-1-101"></a>        <span class="s1">&#39;config_integration&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-1-102" name="__codelineno-1-102"></a>        <span class="s1">&#39;config_integration_api&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-1-103" name="__codelineno-1-103"></a>        <span class="s1">&#39;full_page&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-1-104" name="__codelineno-1-104"></a>        <span class="s1">&#39;config_webservice&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-1-105" name="__codelineno-1-105"></a>        <span class="s1">&#39;translate&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+<a id="__codelineno-1-106" name="__codelineno-1-106"></a>    <span class="p">],</span>
+<a id="__codelineno-1-107" name="__codelineno-1-107"></a>    <span class="s1">&#39;downloadable_domains&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-108" name="__codelineno-1-108"></a>        <span class="s1">&#39;magento.localhost&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-109" name="__codelineno-1-109"></a>        <span class="s1">&#39;youtube.com&#39;</span>
+<a id="__codelineno-1-110" name="__codelineno-1-110"></a>    <span class="p">],</span>
+<a id="__codelineno-1-111" name="__codelineno-1-111"></a>    <span class="s1">&#39;install&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+<a id="__codelineno-1-112" name="__codelineno-1-112"></a>        <span class="s1">&#39;date&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Mon, 25 Mar 2024 08:55:32 +0000&#39;</span>
+<a id="__codelineno-1-113" name="__codelineno-1-113"></a>    <span class="p">]</span>
+<a id="__codelineno-1-114" name="__codelineno-1-114"></a><span class="p">];</span>
+</code></pre></div></td></tr></table></div>
+</div>
+</div>
+</div>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Powrót do góry
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Stopka" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Poprzednia strona: Czym jest Redis?">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Poprzednia strona
+              </span>
+              <div class="md-ellipsis">
+                Czym jest Redis?
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../working_test/" class="md-footer__link md-footer__link--next" aria-label="Następna strona: Sprawdzenie działania">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Następna strona
+              </span>
+              <div class="md-ellipsis">
+                Sprawdzenie działania
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Created by Adam Patalong
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.471ce7a9.min.js"></script>
+      
+    
+  </body>
+</html>
